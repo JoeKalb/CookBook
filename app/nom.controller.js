@@ -11,7 +11,7 @@
     function cookController($http, cookFactory) {
         var vm = this;
         vm.title = 'cookController';
-        vm.all
+        vm.all =[];
         vm.name;
         vm.ingrdeients;
         vm.link;
@@ -19,45 +19,35 @@
         vm.ingList = [];
         vm.ingInput;
         vm.entreeSearch;
-        vm.myList;
-      
-        
-
-
 
         activate();
 
         ////////////////
 
         function activate() {
-            
         }
-
-        vm.addIng = function(){
-            if(vm.ingList.indexOf(vm.ingInput) === -1){
-                console.log(vm.ingList.indexOf(vm.ingInput));
-                vm.ingList.push(vm.ingInput);
-             }
-
-        }
-
-        vm.rmIng = function(removeMe){
-            var index = 0;
-            index = vm.ingList.indexOf(removeMe);
-            vm.ingList.splice(index, 1);
-        }
-
-        vm.myList= vm.ingList.toString();
+        // matches recipes to put into table
         vm.goRecipe = function(items, food) {
         	cookFactory.getRecipe(items, food).then(
         		function(foodReady) {
-                    vm.all = foodReady;
+        			vm.all = foodReady;
 
         		},function(error){
                     console.log(error);
                 })
         }
-
+        // adds items to a list
+        vm.addIng = function(){
+            if(vm.ingList.indexOf(vm.ingInput) === -1){
+                vm.ingList.push(vm.ingInput);
+             }
+        }
+        // remove items
+        vm.rmIng = function(removeMe){
+            var index = 0;
+            index = vm.ingList.indexOf(removeMe);
+            vm.ingList.splice(index, 1);
+        }
 
     }
 })();

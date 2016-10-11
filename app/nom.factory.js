@@ -20,8 +20,8 @@
         		params: {
         			i: items,
         			q: food,
-
         		}
+                
         	}).then(function(result) {
         		return result.data.results; // changed here
         	},function(error){
