@@ -13,15 +13,15 @@
         ////////////////
         var items = '';
         var food = '';
+        // getting data from the api
         function getRecipe(items, food) {
         	return $http({
         		method: 'GET',
         		url: 'http://www.recipepuppy.com/api/',
         		params: {
         			i: items,
-        			q: food,
-        		}
-                
+        			q: food
+        		}   
         	}).then(function(result) {
         		return result.data.results; // changed here
         	},function(error){

@@ -12,9 +12,10 @@
 <link rel="stylesheet" href="/app/styles/styles.css">
 <!-- endinject -->
 </head>
-
+<!-- Creating the body -->
 <body class="ng-cloak">
 <div class='container' ng-controller="cookController as vm">
+	<!-- Adding a well with photos for display on the header -->
 	<div class="well row">
 		<div class="col-sm-4">
 			<img class="fork" src="http://philly.happeningmag.com/wp-content/uploads/2011/12/Cutlery-Set-Knife-Spoon-Fork-.jpg" alt="" id='top-image'>
@@ -26,7 +27,7 @@
 			<img src="http://freedesignfile.com/upload/2014/05/Vector-funny-chef-design-graphic-set-04.jpg" alt="" id='right-image'>
 		</div>
 	</div>
-	<!--Input area-->
+	<!-- Adding an entree item input -->
 	<div class="col-sm-12">
 		<div class='form-group'>
 			<label for="">What would you like to make?</label>
@@ -42,9 +43,10 @@
 	<div class="col-sm-12">
 		<legend></legend>
 	</div>
+	<!-- Entering ingredients to be added to the search -->
 	<div class='form-group'>
 		<div class="col-sm-6">
-			<label for="Ingridents" >Please enter Ingridents</label>
+			<label for="Ingridents" >Please enter Ingredients</label>
 			<div class="input-group">
 				<input type="text" id='Ingridents' class="form-control" ng-model="vm.ingInput">
 				<span class="input-group-btn" > 
@@ -53,6 +55,7 @@
 			</div>
 		</div>
 	</div>
+	<!-- Lazy buttons for people -->
 	<div class="col-sm-6 form-group text-right">
 			<label for="" class="text-right">Don't feel like typing? Click here!</label>
 		<div class="btn-group" role="group">
@@ -66,12 +69,10 @@
 		    <button class="btn btn-success" ng-click="vm.addIngButton('beef')">Beef</button>
 		    <button class="btn btn-success" ng-click="vm.addIngButton('garlic')">Garlic</button>
 		</div>
-
 	</div>
+	<!-- Makes a table of ingredient lists -->
 	<div class="col-sm-4 col-sm-offset-4">
-		
 		<table class="table table-success text-center" >
-			
 			<tr ng-hide="vm.ingList.length === 0" class="text-center">
 				<th>Index of Items</th>
 				<th>Ingredient</th>
@@ -90,11 +91,12 @@
 	</div>
 
 	<div class="col-sm-12">
+		<!-- Table to show results from the api -->
 		<table class="table">
 			<tr ng-hide="vm.all.length === 0">
 				<th>Recipe Name</th>
 				<th>Ingredients</th>
-				<th>Click here to see the recipe</th>
+				<th>See Recipes</th>
 			</tr>
 			<tr ng-repeat='details in vm.all'>
 				<td>{{details.title}}</td>
